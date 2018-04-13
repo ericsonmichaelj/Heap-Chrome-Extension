@@ -1,0 +1,25 @@
+{
+  "name": "heap-chrome-extension",
+  "version": "1.0.0",
+  "description": "A chrome extension designed to make heap debugging easier",
+  "main": "heap-chrome-extension.js",
+  "scripts": {
+    "test": "npm run compile-template && open 'test/index.html'",
+    "compile-template": "node_modules/.bin/pug templates/index.pug --out test -O templates/index.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ericsonmichaelj/Heap-Chrome-Extension.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ericsonmichaelj/Heap-Chrome-Extension/issues"
+  },
+  "homepage": "https://github.com/ericsonmichaelj/Heap-Chrome-Extension#readme",
+
+  "devDependencies": {
+    "pug-cli": "^1.0.0-alpha6",
+    "pug": "^2.0.3"
+  }
+}
