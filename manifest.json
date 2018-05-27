@@ -1,0 +1,31 @@
+  {
+    "name": "Heap Analytics Chrome Extension",
+    "version": "1.0",
+    "description": "An extension for displaying heap analytics in the console",
+    "permissions": [
+        "tabs",
+        "webRequest",
+        "webRequestBlocking",
+        "http://*/*",
+        "https://*/*"
+      ],
+    "browser_action": {
+      "default_icon": "resources/icon.png",
+      "default_title": "Heap Analytics Debugger is ON"
+    },
+    "background": {
+      "scripts": ["src/background.js"]
+    },
+    "content_scripts" : [{
+      "matches" : ["http://*/*","https://*/*"],
+      "js" : ["src/analytics.js"],
+      "run_at" : "document_start"
+    }],
+    "icons": {
+      "16": "resources/icon.png",
+      "32": "resources/icon.png",
+      "48": "resources/icon.png",
+      "128": "resources/icon.png"
+    },
+    "manifest_version": 2
+  }
