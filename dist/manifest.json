@@ -14,7 +14,7 @@
       "default_title": "Heap Analytics Debugger is ON"
     },
     "background": {
-      "scripts": ["src/background.js"]
+      "scripts": ["background.js"]
     },
     "content_scripts" : [{
       "matches" : ["http://*/*","https://*/*"],

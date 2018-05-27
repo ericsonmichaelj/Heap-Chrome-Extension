@@ -18,6 +18,7 @@ html
             | $(function() {
             |    window.mochaPhantomJS ? mochaPhantomJS.run() : mocha.run();
             |  });
+        script(src='dis/src/analytics.js')
         script(src='spec/index.spec.js')
     body
         div(id="mocha")

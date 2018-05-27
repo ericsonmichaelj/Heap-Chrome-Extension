@@ -1,3 +1,5 @@
 templates/index.json
 node_modules/
 test/index.html
+*.pem
+*.crx
