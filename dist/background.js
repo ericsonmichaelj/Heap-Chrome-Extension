@@ -31,7 +31,6 @@ chrome.webRequest.onBeforeRequest.addListener(
     function(details) {
         if (debug) {
             chrome.tabs.query({active: true, currentWindow: true},function(tabs) {
-                console.log('this is details', details)
                 chrome.tabs.sendMessage(tabs[0].id, details);
             });
         }
