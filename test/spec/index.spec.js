@@ -25,7 +25,7 @@ describe('Heap Logger', () => {
   it('should set event name  from query string', () => {
     const heapLogger = HeapLogger.init('https://example.com?t0=test&t1=click&t2=foo');
     expect(heapLogger.events[0].name).to.equal('test');
-    expect(heapLogger.events[1]).to.equal(undefined);
+    expect(heapLogger.events[1].name).to.equal('click');
     expect(heapLogger.events[2].name).to.equal('foo');
   });
   it('should not set events if query string does not contain event property', () => {

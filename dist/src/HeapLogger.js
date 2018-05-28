@@ -22,10 +22,6 @@ const HeapLogger = class {
     return queryStringKey[0] === 't' && !isNaN(parseInt(queryStringKey.substr(1)));
   }
 
-  _isCustomEvent(event) {
-    return event !== 'click' && event !== 'submit' && event !== 'change';
-  }
-
   _isEventProperty(queryStringKey) {
     return queryStringKey[0] === 'k' && !isNaN(parseInt(queryStringKey.substr(1)));
   }
@@ -38,7 +34,7 @@ const HeapLogger = class {
     if(!this.queryString) return;
      const events = [];
      for (let queryStringKey in this.queryString) {
-      if(this._isEvent(queryStringKey) && this._isCustomEvent(this.queryString[queryStringKey])) {
+      if(this._isEvent(queryStringKey)) {
         const eventId = this._getEventId(queryStringKey);
         events[eventId] = {name: this.queryString[queryStringKey], properties: {}};
       }
@@ -55,7 +51,7 @@ const HeapLogger = class {
           for (let i =0;i < eventProperties.length;i+=2) {
             const key = eventProperties[i];
             const value = eventProperties[i+1];
-            if(his.events[eventId]) {
+            if(this.events[eventId]) {
               this.events[eventId].properties[key] = value;
             }
           }
