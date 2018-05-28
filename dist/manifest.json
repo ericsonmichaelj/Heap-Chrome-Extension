@@ -18,7 +18,7 @@
     },
     "content_scripts" : [{
       "matches" : ["http://*/*","https://*/*"],
-      "js" : ["lib/queryString.js", "src/analytics.js"],
+      "js" : ["lib/queryString.js", "src/HeapLogger.js", "src/analytics.js"],
       "run_at" : "document_start"
     }],
     "icons": {

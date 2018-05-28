@@ -5,8 +5,8 @@
   "main": "heap-chrome-extension.js",
   "scripts": {
     "test": "npm run compile-template && npm run serve",
-    "serve": "node_modules/.bin/serve test/ --open",
-    "compile-template": "node_modules/.bin/pug templates/index.pug --out test -O templates/index.json"
+    "serve": "node_modules/.bin/serve --open",
+    "compile-template": "node_modules/.bin/pug templates/index.pug -o ~/heap-chrome-extension -O templates/index.json"
   },
   "repository": {
     "type": "git",
