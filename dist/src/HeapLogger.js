@@ -60,22 +60,24 @@ const HeapLogger = class {
     }    
   }
 
-  static init(url) {
-    count++;
-    const heapLogger = new HeapLogger(url);
-    heapLogger.setUserProperties();
-    heapLogger.setEvents();
-    heapLogger.setEventsProperties();
-    if(this.events) heapLogger.print();
-    return heapLogger;
+  init() {
+
+    this.setUserProperties();
+    this.setEvents();
+    this.setEventsProperties();
+    if(this.events || elv.populated(this.userProperties)) {
+      count++;
+      this.print();
+    }
+    return this;
   }
   _printEvents() {
     console.group('Event');
     if(this.events) {
       for(const event of this.events) {
-        if(event) {
+        if(elv.populated(event)) {
           if(event.name) console.log('name:', event.name);
-          if(Object.keys(event.properties).length > 0)  {
+          if(elv.populated(event.properties))  {
             console.log('properties:')
             console.table(event.properties);
           }
@@ -87,7 +89,7 @@ const HeapLogger = class {
   _printUserInfo() {
     console.group('User Info');
       console.log('identity:', this.identity);
-      if(this.userProperties) {
+      if(elv.populated(this.userProperties)) {
         console.log('User Properties:');
         console.table(this.userProperties);
       }

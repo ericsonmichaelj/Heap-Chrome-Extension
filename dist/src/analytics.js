@@ -1,5 +1,6 @@
 chrome.extension.onMessage.addListener(
   function(request, sender, sendResponse) {
-    HeapLogger.init(request.url)
+    const heapLogger = new HeapLogger(request.url);
+    heapLogger.init();
   }
 );

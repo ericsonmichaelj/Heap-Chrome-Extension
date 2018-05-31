@@ -18,6 +18,7 @@ html
             | $(function() {
             |    window.mochaPhantomJS ? mochaPhantomJS.run() : mocha.run();
             |  });
+        script(src='dist/lib/elv.js')
         script(src='dist/lib/queryString.js')
         script(src='/dist/src/HeapLogger.js')
         script(src='/test/spec/index.spec.js')
