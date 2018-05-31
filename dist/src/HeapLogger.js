@@ -61,14 +61,12 @@ const HeapLogger = class {
   }
 
   static init(url) {
-    count++
+    count++;
     const heapLogger = new HeapLogger(url);
     heapLogger.setUserProperties();
-    heapLogger.setEvents()
+    heapLogger.setEvents();
     heapLogger.setEventsProperties();
-    // TO DO: Console.log Event and Event Properties. Event Properties are kX.
-    // Events are tX (avoid click and change events) 
-    heapLogger.print();
+    if(this.events) heapLogger.print();
     return heapLogger;
   }
   _printEvents() {
