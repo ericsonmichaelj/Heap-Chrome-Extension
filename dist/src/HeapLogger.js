@@ -72,9 +72,10 @@ const HeapLogger = class {
     return this;
   }
   _printEvents() {
-    console.group('Event');
-    if(this.events) {
+    if(elv.populated(this.events)) {
+      let count = 0;
       for(const event of this.events) {
+        console.group('Event ' + ++count);
         if(elv.populated(event)) {
           if(event.name) console.log('name:', event.name);
           if(elv.populated(event.properties))  {
@@ -82,9 +83,10 @@ const HeapLogger = class {
             console.table(event.properties);
           }
         }
+      console.groupEnd();
       }
     }
-    console.groupEnd();
+
   }
   _printUserInfo() {
     console.group('User Info');
