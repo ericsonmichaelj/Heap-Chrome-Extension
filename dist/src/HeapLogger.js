@@ -1,4 +1,4 @@
-let count = 0
+let count = 0;
 const HeapLogger = class {
   constructor(url) {
     this.queryString = url ? queryString.parselUrl(url).query : null;
@@ -66,41 +66,59 @@ const HeapLogger = class {
     this.setEvents();
     this.setEventsProperties();
     if(this.events || elv.populated(this.userProperties)) {
-      count++;
       this.print();
     }
     return this;
   }
   _printEvents() {
     if(elv.populated(this.events)) {
-      let count = 0;
       for(const event of this.events) {
-        console.group('Event ' + ++count);
         if(elv.populated(event)) {
-          if(event.name) console.log('name:', event.name);
-          if(elv.populated(event.properties))  {
-            console.log('properties:')
-            console.table(event.properties);
-          }
+          count++;
+          console.group('Heap Analytics: Event Fired (Log #' + count + ')');
+            this._printUserInfo();
+            console.group('Event');
+              if(event.name) console.log('name:', event.name);
+              if(elv.populated(event.properties))  {
+                console.group('properties:');
+                for (let property in event.properties) {
+                  const value = event.properties[property];
+                  console.log(property + ': ' + value);
+                }
+                console.groupEnd();
+              }
+            console.groupEnd();
+          console.groupEnd();
         }
-      console.groupEnd();
       }
     }
-
   }
+
   _printUserInfo() {
     console.group('User Info');
       console.log('identity:', this.identity);
       if(elv.populated(this.userProperties)) {
-        console.log('User Properties:');
-        console.table(this.userProperties);
+        console.group('User Properties:');
+        for (let property in this.userProperties) {
+          const value = this.userProperties[property];
+          console.log(property + ': '  + value);
+        }
+        console.groupEnd();
       }
-    console.groupEnd();    
-  }
-  print() {
-    console.group('Heap Analytics Log ' + count);
-      this._printUserInfo();
-      this._printEvents();
     console.groupEnd();
+  }
+
+  _printUserProperties() {
+    if(elv.populated(this.userProperties)) {
+      count++;
+      console.group('Heap Analytics: User Properties added (Log #' + count + ')');
+      this._printUserInfo();
+      console.groupEnd();  
+    }
+  }
+
+  print() {
+    this._printUserProperties();
+    this._printEvents();
   }
 }
