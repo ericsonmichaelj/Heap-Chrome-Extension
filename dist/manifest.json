@@ -1,6 +1,6 @@
   {
     "name": "Heap Analytics Debugger",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "An extension for displaying heap analytics in the console",
     "permissions": [
         "tabs",
@@ -18,7 +18,12 @@
     },
     "content_scripts" : [{
       "matches" : ["http://*/*","https://*/*"],
-      "js" : ["lib/queryString.js", "lib/elv.js", "src/HeapLogger.js", "src/analytics.js"],
+      "js" : ["lib/queryString.js", 
+        "lib/elv.js", 
+        "src/events.js", 
+        "src/HeapLogger.js", 
+        "src/analytics.js"
+      ],
       "run_at" : "document_start"
     }],
     "icons": {
