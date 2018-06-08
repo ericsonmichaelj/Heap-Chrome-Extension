@@ -18,28 +18,14 @@ const HeapLogger = class {
     this.userProperties = Object.keys(userProperties).length > 0 ? userProperties: null;
   }
 
-  _isEvent(queryStringKey) {
-    return queryStringKey[0] === 't' && !isNaN(parseInt(queryStringKey.substr(1)));
-  }
-
-  _isEventProperty(queryStringKey) {
-    return queryStringKey[0] === 'k' && !isNaN(parseInt(queryStringKey.substr(1)));
-  }
-
-  _getEventId(queryStringKey) {
-    return parseInt(queryStringKey.substr(1))
-  }
-
   setEvents() {
     if(!this.queryString) return;
-     const events = [];
-     for (let queryStringKey in this.queryString) {
-      if(this._isEvent(queryStringKey)) {
-        const eventId = this._getEventId(queryStringKey);
-        events[eventId] = new Event({name: this.queryString[queryStringKey], properties: {}});
+      let eventId = 0;
+      while(true) {
+        if(!Event.isEvent(this.queryString, eventId)) return 
+        this.events[eventId] = new Event(this.queryString, eventId);
+        eventId++;
       }
-    }
-    this.events = events;
   }
 
   setViewEvent() {
@@ -47,32 +33,22 @@ const HeapLogger = class {
     if(ViewEvent.isViewEvent(queryString)) this.events.push(new ViewEvent(queryString))
   }
 
-_setEventProperties(queryStringKey) {
-    if(this._isEventProperty(queryStringKey)) {
-      const eventId = this._getEventId(queryStringKey);
-      const eventProperties = this.queryString[queryStringKey];
-      if (Array.isArray(eventProperties)) {
-        for (let i =0;i < eventProperties.length;i+=2) {
-          const key = eventProperties[i];
-          const value = eventProperties[i+1];
-          if(this.events[eventId]) {
-            this.events[eventId].properties[key] = value;
-          }
-        }
-      }
-    }
+  _hasKeyDownEventProperties(eventId) {
+    return !this.queryString.y[eventId] || !this.queryString[eventId]
   }
 
-  setEventsProperties() {
-     for (let queryStringKey in this.queryString) {
-       this._setEventProperties(queryStringKey)
-    }    
+  //y[i= selector (optional)
+  //n[i] = first
+  //x[i] = text (optional)
+  setKeyDownEventProperties() {
+    if(this._hasKeyDownEventProperties()) {
+
+    }
   }
 
   run() {
     this.setUserProperties();
     this.setEvents();
-    this.setEventsProperties();
     this.setViewEvent();
     if(elv.populated(this.events) || elv.populated(this.userProperties)) {
       this.print();

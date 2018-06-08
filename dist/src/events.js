@@ -1,9 +1,22 @@
-class Event {
-    constructor(initialObject) {
-        this.name = initialObject.name
-        this.properties = initialObject.properties
-        this.headerName = 'Event'
+function convertArrayToObject(array) {
+    const object = {}
+    if(Array.isArray(array)) {
+        for (let i = 0; i < array.length;i+=2) {
+            object[array[i]] = array[i+1]
+        }
     }
+    return object
+}
+
+class Event {
+    constructor(queryString, eventId) {
+        if(queryString && elv(eventId)) {
+            this.name = queryString[`t${eventId}`]
+            this.properties = convertArrayToObject(queryString[`k${eventId}`])
+            this.headerName = 'Event'
+        }
+    }
+
     display(callback) {
         console.group('Event');
             if(this.name) console.log('name:', this.name);
@@ -18,13 +31,17 @@ class Event {
             if(callback) callback()
         console.groupEnd();
     }
+    static isEvent(queryString, id) {
+        const event = queryString[`t${id}`]
+        return elv(event)
+      }
 }
 
 class ViewEvent extends Event {
     constructor(queryString) {
-        const eventObject = {name: 'view'}
-        eventObject.properties = ViewEvent.getProperties(queryString.k)
-        super(eventObject)
+        super()
+        this.name = 'view'
+        this.properties = convertArrayToObject(queryString.k)
         this.headerName = 'View Event'
         this.url = ViewEvent.getUrl(queryString)
     }
@@ -40,7 +57,6 @@ class ViewEvent extends Event {
         }
         
     }
-
     static getUrl(queryString) {
         let url = `${queryString.d}${queryString.h}`
         if (queryString.q) {
@@ -50,15 +66,5 @@ class ViewEvent extends Event {
             url+= `#${queryString.g}`  
         }
         return url
-    }
-
-    static getProperties(events) {
-        const properties = {}
-        if(Array.isArray(events)) {
-            for (let i = 0; i < events.length;i+=2) {
-                properties[events[i]] = events[i+1]
-            }
-        }
-        return properties
     }
 }
