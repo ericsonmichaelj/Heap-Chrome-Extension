@@ -29,12 +29,14 @@ describe('Heap Logger', () => {
       expect(heapLogger.userProperties.a).to.equal('b');
     });
   });
-  describe('events', () => {
-    it('should set event name  from query string', () => {
+  describe('events with no selectors', () => {
+    it('should set event name from query string', () => {
       const heapLogger = setup('https://example.com?t0=test&t1=click&t2=foo');
       expect(heapLogger.events[0].name).to.equal('test');
       expect(heapLogger.events[1].name).to.equal('click');
       expect(heapLogger.events[2].name).to.equal('foo');
+      expect(elv.populated(heapLogger.events[0].selectorProperties))
+        .to.equal(false);
     });
     it('should not set events if query string does not contain event property', () => {
       const heapLogger = setup('https://example.com?tl=test');
@@ -43,8 +45,25 @@ describe('Heap Logger', () => {
     it('should have an events properties', () => {
       const heapLogger = setup('https://example.com?t0=test&k0=foo&k0=bar&k0=hello&k0=world');
       expect(heapLogger.events[0].properties.foo).to.equal('bar');
-      expect(heapLogger.events[0].properties.hello).to.equal('world');       
+      expect(heapLogger.events[0].properties.hello).to.equal('world'); 
     }); 
+  describe('events with selectors', () => {
+    it('should have selector properties if its on the query string', () => {
+      const heapLogger = setup('https://example.com?t0=test&n0=div');
+      expect(heapLogger.events[0].selectorProperties.selectors).to.equal('div');       
+      expect(elv(heapLogger.events[0].selectorProperties.innerText)).to.equal(false);   
+    })
+    it('should set the inner text if its on the query string', () => {
+      const heapLogger = setup('https://example.com?t0=test&n0=div&x0=text');
+      expect(heapLogger.events[0].selectorProperties.selectors).to.equal('div');       
+      expect(heapLogger.events[0].selectorProperties.innerText).to.equal('text');   
+    })
+    it('should set the selector from y0 if its on the query string', () => {
+      const heapLogger = setup('https://example.com?t0=test&n0=div&y0=h1');
+      expect(heapLogger.events[0].selectorProperties.selectors).to.equal('h1'); 
+    })   
+  })
+
   })
   describe('view events', () => {
     it('should set events if query string contains a view event', () => {

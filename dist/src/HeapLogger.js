@@ -37,7 +37,7 @@ const HeapLogger = class {
     return !this.queryString.y[eventId] || !this.queryString[eventId]
   }
 
-  //y[i= selector (optional)
+  //y[i]= selector (optional)
   //n[i] = first
   //x[i] = text (optional)
   setKeyDownEventProperties() {
