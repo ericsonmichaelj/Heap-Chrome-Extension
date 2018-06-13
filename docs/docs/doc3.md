@@ -1,13 +1,36 @@
 ---
 id: doc3
-title: This is document number 3
+title: Contributing
 ---
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ac euismod odio, eu consequat dui. Nullam molestie consectetur risus id imperdiet. Proin sodales ornare turpis, non mollis massa ultricies id. Nam at nibh scelerisque, feugiat ante non, dapibus tortor. Vivamus volutpat diam quis tellus elementum bibendum. Praesent semper gravida velit quis aliquam. Etiam in cursus neque. Nam lectus ligula, malesuada et mauris a, bibendum faucibus mi. Phasellus ut interdum felis. Phasellus in odio pulvinar, porttitor urna eget, fringilla lectus. Aliquam sollicitudin est eros. Mauris consectetur quam vitae mauris interdum hendrerit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
-Duis et egestas libero, imperdiet faucibus ipsum. Sed posuere eget urna vel feugiat. Vivamus a arcu sagittis, fermentum urna dapibus, congue lectus. Fusce vulputate porttitor nisl, ac cursus elit volutpat vitae. Nullam vitae ipsum egestas, convallis quam non, porta nibh. Morbi gravida erat nec neque bibendum, eu pellentesque velit posuere. Fusce aliquam erat eu massa eleifend tristique.
+## Reporting an issue
 
-Sed consequat sollicitudin ipsum eget tempus. Integer a aliquet velit. In justo nibh, pellentesque non suscipit eget, gravida vel lacus. Donec odio ante, malesuada in massa quis, pharetra tristique ligula. Donec eros est, tristique eget finibus quis, semper non nisl. Vivamus et elit nec enim ornare placerat. Sed posuere odio a elit cursus sagittis.
+Any feedback on bugs, ideas for features, or questions about the Heap Analytics Debugger Chrome Extension is welcome and highly encouraged. Please report issues to the github repository: https://github.com/ericsonmichaelj/Heap-Chrome-Extension/issues
 
-Phasellus feugiat purus eu tortor ultrices finibus. Ut libero nibh, lobortis et libero nec, dapibus posuere eros. Sed sagittis euismod justo at consectetur. Nulla finibus libero placerat, cursus sapien at, eleifend ligula. Vivamus elit nisl, hendrerit ac nibh eu, ultrices tempus dui. Nam tellus neque, commodo non rhoncus eu, gravida in risus. Nullam id iaculis tortor.
+If you do not have a github profile, you can also report issues on the support page:
 
-Nullam at odio in sem varius tempor sit amet vel lorem. Etiam eu hendrerit nisl. Fusce nibh mauris, vulputate sit amet ex vitae, congue rhoncus nisl. Sed eget tellus purus. Nullam tempus commodo erat ut tristique. Cras accumsan massa sit amet justo consequat eleifend. Integer scelerisque vitae tellus id consectetur.
+https://chrome.google.com/webstore/detail/heap-analytics-debugger/bihllkinhojjiacepgoipnppiiigbekj/support
+
+I should reply to you within a day. However, if I do not respond, you can email at ericson.michael.j@gmail.com
+
+##  Development
+
+### Getting Started
+
+If you just want to run the chrome extension locally, in chrome://extensions/ make sure you are in developer mode and pack and unload extension from the `dist/` folder
+
+### Running the Tests
+
+The test runner runs heap analytics. You can get a free heap id with registration. Place the heap id in a JSON string in `templates/index.json` with key id and the value of the id.
+
+However the tests for heapLogger do not need to use heap. The only tests that will fail will be for ensuring heap is there.
+
+Make sure that your produced index.html file goes into the project folder. If it does not appear there make a change in -o for compile-template script or ensure that heap-chrome-extension is in your home directory
+
+### Updating Documentation
+
+These documentations were made with docusaurus and can be found in the docs folder. To learn more read here: https://docusaurus.io/. 
+
+### Pull Requests
+
+Just create a pull request to master, state the reason for the change and I'll take a look at it. I am not really picky when it comes to approving pull requests, so long as there are tests and the tests pass. I should get to your pull request within a day. If I do not respond to your pull request within a day, you can reach me at ericson.michael.j@gmail.com.
