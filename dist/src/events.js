@@ -87,10 +87,10 @@ class ViewEvent extends Event {
     static getUrl(queryString) {
         let url = `${queryString.d}${queryString.h}`
         if (queryString.q) {
-            url+= `?${queryString.q}`
+            url+= `${queryString.q}`
         }
         if(queryString.g) {
-            url+= `#${queryString.g}`  
+            url+= `${queryString.g}`  
         }
         return url
     }

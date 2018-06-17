@@ -79,12 +79,12 @@ describe('Heap Logger', () => {
       expect(heapLogger.events[0].properties.foo).to.equal('bar')     
     })
     it('should set the query string if it exists', () => {
-      const heapLogger = setup('https://example.com?h=%2F&d=localhost&q=test');
+      const heapLogger = setup('https://example.com?h=%2F&d=localhost&q=%3Ftest');
       expect(heapLogger.events.length).to.equal(1)
       expect(heapLogger.events[0].url).to.equal('localhost/?test')    
     })
     it('should set the hash if it exists', () => {
-      const heapLogger = setup('https://example.com?h=%2F&d=localhost&g=test');
+      const heapLogger = setup('https://example.com?h=%2F&d=localhost&g=%23test');
       expect(heapLogger.events.length).to.equal(1)
       expect(heapLogger.events[0].url).to.equal('localhost/#test')    
     })
