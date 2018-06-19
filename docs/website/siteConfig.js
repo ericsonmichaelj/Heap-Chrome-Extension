@@ -21,8 +21,8 @@ const users = [
 ];
 
 const siteConfig = {
-  title: 'Test Site' /* title for your website */,
-  tagline: 'A website for testing',
+  title: 'Heap Analytics Debugger' /* title for your website */,
+  tagline: 'A chrome extension to ensure your heap data gets fired',
   url: 'https://ericsonmichaelj.github.io' /* your website url */,
   baseUrl: '/Heap-Chrome-Extension/' /* base url for your project */,
   // For github.io type URLs, you would set the url and baseUrl like:
@@ -39,7 +39,7 @@ const siteConfig = {
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
     {doc: 'doc1', label: 'Docs'},
-    {doc: 'doc4', label: 'API'},
+    {doc: 'doc4', label: 'AP'},
     {page: 'help', label: 'Help'},
     {blog: true, label: 'Blog'},
   ],
@@ -48,14 +48,16 @@ const siteConfig = {
   users,
 
   /* path to images for header/footer */
-  headerIcon: 'img/docusaurus.svg',
-  footerIcon: 'img/docusaurus.svg',
-  favicon: 'img/favicon.png',
+  headerIcon: 'img/analytics.png',
+  footerIcon: 'img/analytics.png',
+  favicon: 'img/analytics.png',
 
   /* colors for website */
+  // #EF8726
+  // #EE6C4A
   colors: {
-    primaryColor: '#2E8555',
-    secondaryColor: '#205C3B',
+    primaryColor: '#EF8726',
+    secondaryColor: '#EE6C4A',
   },
 
   /* custom fonts for website */
@@ -69,12 +71,6 @@ const siteConfig = {
       "system-ui"
     ]
   },*/
-
-  // This copyright info is used in /core/Footer.js and blog rss/atom feeds.
-  copyright:
-    'Copyright © ' +
-    new Date().getFullYear() +
-    ' Your Name or Your Company Name',
 
   highlight: {
     // Highlight.js theme to use for syntax highlighting in code blocks
@@ -93,7 +89,7 @@ const siteConfig = {
 
   // You may provide arbitrary config keys to be used as needed by your
   // template. For example, if you need your repo's URL...
-  //   repoUrl: 'https://github.com/facebook/test-site',
+    repoUrl: 'https://github.com/ericsonmichaelj/Heap-Chrome-Extension',
 };
 
 module.exports = siteConfig;

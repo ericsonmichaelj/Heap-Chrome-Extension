@@ -20,3 +20,7 @@ No longer logging user and event properties using table format since it does not
 Version 1.1.1
 ------
 Now logs View Events. Logs about Event now include event properties about selector and target text.
+
+Version 1.1.2
+------
+Fix bug in which `?` and `#` were counted twice.
