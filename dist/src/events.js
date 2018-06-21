@@ -24,7 +24,7 @@ class SelectorProperties {
     }
     display() {
         console.log(`DOM Hierachy: ${this.selectors.split('|').join('\n')}`)
-        if(this.innerText) console.log(`Target Text: ${this.innerText}`)
+        if(elv(this.innerText)) console.log(`Target Text: ${this.innerText}`)
     }
 
 }
