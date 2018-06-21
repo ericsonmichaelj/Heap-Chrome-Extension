@@ -1,26 +1,16 @@
 ---
 id: doc2
-title: Versions
+title: What Gets Logs and Capabilities
 ---
 
-Version 1.0.0
-------
-Every request to heap analytics is logged. Information that displays if avaible are userId, user properties, event name and event properties. Information about userProperties and eventProperties are in a table format.
+## What gets logged
 
-Version 1.0.1
-------
-Fix bug where logging would occur with no useful information. Now will only show logs for heap events with events or user properties.
+The Heap Analytics Debugger logs information that is sent to the Heap Aanlytics servers. Heap will send information about all views, clicks, field changes, and submissions unless you specified to heap that you do not want that information tracked (This is done through adding a heap-ignore attribute to an element). 
 
-Version 1.1.0
-------
-Instead of logging everytime a heap analytics request is made, logs everytime either an event is fired or user Properties have been added. Title of log is now either "Heap Analytics: User Properties added (Log #X)" or "Heap Analytics: Event Fired (Log #X)"
+In addition, each event will fire information about the User. It includes the `identity` which is the identity you use in heap analytics to search for a specific user. If it is undefined, then heap will give the user a random generated value. In addition, if any user properties are added to the user, it will be logged with the title `User Properties added`
 
-No longer logging user and event properties using table format since it does not show up when the console is closed.
+## What Heap Analytics Debugger is not capable of doing
 
-Version 1.1.1
-------
-Now logs View Events. Logs about Event now include event properties about selector and target text.
+The Heap Analytics is NOT capable of logging the event definitions from the Event Visualizer. It is unable to access any events that is stored on the heap server. This includes combination events, wrappers for event custom events, and any event that uses the heap dashboard in anyway to create it. This is because the Heap Analytics Debugger cannot access data that you need authentication to retrieve and is not an official Heap Analytics product. 
 
-Version 1.1.2
-------
-Fix bug in which `?` and `#` were counted twice.
+However, you can determine if your event definition was fired IF the event name and properties would match that definition. It is also capable of logging event definitions that come from the custom event Heap API.

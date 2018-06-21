@@ -14,8 +14,11 @@ const GridBlock = CompLibrary.GridBlock;
 const siteConfig = require(process.cwd() + '/siteConfig.js');
 
 function docUrl(doc, language) {
-  return siteConfig.baseUrl + 'docs/' + (language ? language + '/' : '') + doc;
+  return siteConfig.baseUrl + 'docs/' + doc;
 }
+
+const githubUrl = 'https://github.com/ericsonmichaelj/Heap-Chrome-Extension'
+const supportUrl = 'https://chrome.google.com/webstore/detail/heap-analytics-debugger/bihllkinhojjiacepgoipnppiiigbekj/support'
 
 class Help extends React.Component {
   render() {
@@ -23,18 +26,18 @@ class Help extends React.Component {
     const supportLinks = [
       {
         content: `Learn more using the [documentation on this site.](${docUrl(
-          'doc1.html',
+          'gettingStarted.html',
           language
         )})`,
         title: 'Browse Docs',
       },
       {
-        content: 'Ask questions about the documentation and project',
-        title: 'Join the community',
+        content: `View source code and report an issue for bugs or feature enhancements  [here.](${supportUrl})`,
+        title: 'Check out Github',
       },
       {
-        content: "Find out what's new with this project",
-        title: 'Stay up to date',
+        content: `Don't have a github account? Ask [support](${supportUrl}) for additional questions`,
+        title: 'Go to Support',
       },
     ];
 
@@ -45,7 +48,7 @@ class Help extends React.Component {
             <header className="postHeader">
               <h2>Need help?</h2>
             </header>
-            <p>This project is maintained by a dedicated group of people.</p>
+            <p>If you have any questions you can reach me at <a href="mailto:ericson.michael.j@gmail.com">ericson.michael.j@gmail.com</a></p>
             <GridBlock contents={supportLinks} layout="threeColumn" />
           </div>
         </Container>

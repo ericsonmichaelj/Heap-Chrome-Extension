@@ -81,7 +81,7 @@ class HomeSplash extends React.Component {
           <PromoSection>
             <Button href='https://github.com/ericsonmichaelj/Heap-Chrome-Extension'>Github</Button>
             <Button href="https://chrome.google.com/webstore/detail/heap-analytics-debugger/bihllkinhojjiacepgoipnppiiigbekj?authuser=1">Download</Button>
-            <Button href='/Heap-Chrome-Extension/docs/doc1.html'>Docs</Button>
+            <Button href='/Heap-Chrome-Extension/docs/gettingStarted.html'>Docs</Button>
           </PromoSection>
         </div>
       </SplashContainer>

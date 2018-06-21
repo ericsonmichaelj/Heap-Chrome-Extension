@@ -24,6 +24,7 @@ const siteConfig = {
   title: 'Heap Analytics Debugger' /* title for your website */,
   tagline: 'A chrome extension to ensure your heap data gets fired',
   url: 'https://ericsonmichaelj.github.io' /* your website url */,
+  gaTrackingId: 'UA-121172162-1',
   baseUrl: '/Heap-Chrome-Extension/' /* base url for your project */,
   // For github.io type URLs, you would set the url and baseUrl like:
   //   url: 'https://facebook.github.io',
@@ -38,8 +39,8 @@ const siteConfig = {
 
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
-    {doc: 'doc1', label: 'Docs'},
-    {doc: 'doc4', label: 'AP'},
+    {doc: 'gettingStarted', label: 'Docs'},
+    {doc: 'api1', label: 'API'},
     {page: 'help', label: 'Help'},
     {blog: true, label: 'Blog'},
   ],
@@ -78,14 +79,15 @@ const siteConfig = {
   },
 
   // Add custom scripts here that would be placed in <script> tags
-  scripts: ['https://buttons.github.io/buttons.js'],
+  scripts: ['https://buttons.github.io/buttons.js', 
+  '/Heap-Chrome-Extension/js/heapAnalytics.js'],
 
   /* On page navigation for the current documentation page */
   onPageNav: 'separate',
 
   /* Open Graph and Twitter card images */
-  ogImage: 'Heap-Chrome-Extension/img/docusaurus.png',
-  twitterImage: 'Heap-Chrome-Extension/img/docusaurus.png',
+  ogImage: 'Heap-Chrome-Extension/img/analytics.png',
+  twitterImage: 'Heap-Chrome-Extension/img/analytics.png',
 
   // You may provide arbitrary config keys to be used as needed by your
   // template. For example, if you need your repo's URL...

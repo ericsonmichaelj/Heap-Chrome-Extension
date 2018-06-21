@@ -35,13 +35,13 @@ class Footer extends React.Component {
           </a>
           <div>
             <h5>Docs</h5>
-            <a href={this.docUrl('doc1.html', this.props.language)}>
+            <a href={this.docUrl('gettingStarted.html', this.props.language)}>
               Getting Started
             </a>
-            <a href={this.docUrl('doc2.html', this.props.language)}>
+            <a href={this.docUrl('doc5.html', this.props.language)}>
               Guides
             </a>
-            <a href={this.docUrl('doc3.html', this.props.language)}>
+            <a href={this.docUrl('api1.html', this.props.language)}>
               API Reference
             </a>
           </div>
@@ -58,6 +58,16 @@ class Footer extends React.Component {
               data-count-aria-label="# stargazers on GitHub"
               aria-label="Star this project on GitHub">
               Star
+            </a>
+          </div>
+          <div>
+            <h5>Support</h5>
+            <a href="mailto:ericson.michael.j@gmail.com">Email me</a>
+            <a href='https://chrome.google.com/webstore/detail/heap-analytics-debugger/bihllkinhojjiacepgoipnppiiigbekj/support'>
+            Ask Support
+            </a>
+            <a href='https://github.com/ericsonmichaelj/Heap-Chrome-Extension/issues/new'>
+            Add Issue On Github
             </a>
           </div>
         </section>
