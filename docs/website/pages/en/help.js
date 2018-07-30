@@ -32,7 +32,7 @@ class Help extends React.Component {
         title: 'Browse Docs',
       },
       {
-        content: `View source code and report an issue for bugs or feature enhancements  [here.](${supportUrl})`,
+        content: `View source code and report an issue for bugs or feature enhancements  [here.](${githubUrl})`,
         title: 'Check out Github',
       },
       {
