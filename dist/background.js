@@ -26,7 +26,6 @@ chrome.browserAction.onClicked.addListener(
     }
 );
 
-
 chrome.webRequest.onBeforeRequest.addListener(
     function(details) {
         if (debug) {
@@ -37,3 +36,16 @@ chrome.webRequest.onBeforeRequest.addListener(
     },
     { urls: ["https://heapanalytics.com/*"] }, ['requestBody', 'blocking']
 );
+
+/* Check whether new version is installed */
+chrome.runtime.onInstalled.addListener(function(details) {
+    /* other 'reason's include 'update' */
+    if (details.reason == "install") {
+        /* If first install, set uninstall URL */
+        var uninstallGoogleFormLink = 'https://docs.google.com/forms/d/1b-o3WaJTNaqZ-fiLOL-WVdpU1NwO74rU2iHZf5Tzi-Q/viewform?edit_requested=true';
+        /* If Chrome version supports it... */
+        if (chrome.runtime.setUninstallURL) {
+            chrome.runtime.setUninstallURL(uninstallGoogleFormLink);
+        }
+    }
+});
