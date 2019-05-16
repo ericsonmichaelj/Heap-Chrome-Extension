@@ -1,11 +1,13 @@
   {
     "name": "Heap Analytics Debugger",
+    "options_page": "options.html",
     "version": "1.1.3",
     "description": "An extension for displaying heap analytics in the console",
     "permissions": [
         "tabs",
         "webRequest",
         "webRequestBlocking",
+        "contextMenus",
         "http://*/*",
         "https://*/*"
       ],
