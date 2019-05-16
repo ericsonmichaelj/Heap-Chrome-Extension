@@ -20,13 +20,13 @@ describe('Heap Logger', () => {
   describe('user', () => {
      it('should have an identity property from query string', () => {
       const heapLogger = setup('https://example.com?i=test');
-      expect(heapLogger.identity).to.equal('test');
+      expect(heapLogger.user.identity).to.equal('test');
     })
     it('should contain the user properties', () => {
       const heapLogger = setup('https://example.com?_test=testA&_a=b');
-      expect(Object.keys(heapLogger.userProperties).length).to.equal(2)
-      expect(heapLogger.userProperties.test).to.equal('testA');
-      expect(heapLogger.userProperties.a).to.equal('b');
+      expect(Object.keys(heapLogger.user.properties).length).to.equal(2)
+      expect(heapLogger.user.properties.test).to.equal('testA');
+      expect(heapLogger.user.properties.a).to.equal('b');
     });
   });
   describe('events with no selectors', () => {
@@ -98,7 +98,7 @@ describe('Heap Logger', () => {
       expect(spy.called).to.equal(false);
     });
     it('should log if there is an event', () => {
-      const heapLogger = new HeapLogger('https://example.com?t0=test');
+      const heapLogger = new HeapLogger('https://example.com?t0=test&i=hello');
       const spy = sinon.spy(heapLogger,'print');
       heapLogger.run();
       expect(spy.called).to.equal(true);

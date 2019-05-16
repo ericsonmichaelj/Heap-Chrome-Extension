@@ -31,14 +31,15 @@ class SelectorProperties {
 
 class Event {
     constructor(queryString, eventId) {
-        if(queryString && elv(eventId)) {
-            this.name = queryString[`t${eventId}`]
-            this.properties = convertArrayToObject(queryString[`k${eventId}`])
-            if(SelectorProperties.hasSelectors(queryString, eventId)) {
-                this.selectorProperties = new SelectorProperties(queryString, eventId)
-            }
-            this.headerName = 'Event'
+        if(!queryString || !elv(eventId)) {
+            return;
         }
+        this.name = queryString[`t${eventId}`]
+        this.properties = convertArrayToObject(queryString[`k${eventId}`])
+        if(SelectorProperties.hasSelectors(queryString, eventId)) {
+            this.selectorProperties = new SelectorProperties(queryString, eventId)
+        }
+        this.headerName = 'Event'
     }
 
     display(callback) {
@@ -59,9 +60,21 @@ class Event {
         console.groupEnd();
     }
     static isEvent(queryString, id) {
+        if(!queryString) return false;
         const event = queryString[`t${id}`]
         return elv(event)
       }
+    static createEvents(queryString) {
+        const events = [];
+        if(!queryString) return events;
+        let eventId = 0;
+        while(true) {
+            if(!Event.isEvent(queryString, eventId)) return events; 
+            events[eventId] = new Event(queryString, eventId);
+            eventId++;
+        }
+        return events; 
+    }
 }
 
 class ViewEvent extends Event {
