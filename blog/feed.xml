@@ -5,8 +5,8 @@
         <link>https://ericsonmichaelj.github.io/Heap-Chrome-Extension/blog</link>
         <description>The best place to stay up-to-date with the latest Heap Analytics Debugger news and events.</description>
         <lastBuildDate>Wed, 20 Jun 2018 06:00:00 GMT</lastBuildDate>
-        <docs>http://blogs.law.harvard.edu/tech/rss</docs>
-        <generator>Feed for Node.js</generator>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
         <image>
             <title>Heap Analytics Debugger Blog</title>
             <url>https://ericsonmichaelj.github.io/Heap-Chrome-Extension/img/analytics.png</url>
@@ -17,9 +17,7 @@
             <link>https://ericsonmichaelj.github.io/Heap-Chrome-Extension/blog/2018/06/20/blog-post.html</link>
             <guid>https://ericsonmichaelj.github.io/Heap-Chrome-Extension/blog/2018/06/20/blog-post.html</guid>
             <pubDate>Wed, 20 Jun 2018 06:00:00 GMT</pubDate>
-            <description><![CDATA[<p>*<em>Please note this debugger is not affiliated with the heap analytics product</em></p>
-<p>There are lots of tests that need to be done for coding projects. Whenever there’s a deployment there’s always the fear of whether a regression happens. While testing on</p>
-]]></description>
+            <description><![CDATA[<p>*<em>Please note this debugger is not affiliated with the heap analytics product</em></p> <p>There are lots of tests that need to be done for coding projects. Whenever there’s a deployment there’s always the fear of whether a regression happens. While testing on you...</p>]]></description>
         </item>
     </channel>
 </rss>

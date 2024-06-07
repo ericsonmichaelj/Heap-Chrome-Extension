@@ -2,20 +2,17 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ericsonmichaelj.github.io/Heap-Chrome-Extension/blog</id>
     <title>Heap Analytics Debugger Blog</title>
-    <updated>2018-06-20T06:00:00Z</updated>
-    <generator>Feed for Node.js</generator>
+    <updated>2018-06-20T06:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ericsonmichaelj.github.io/Heap-Chrome-Extension/blog"/>
     <subtitle>The best place to stay up-to-date with the latest Heap Analytics Debugger news and events.</subtitle>
     <logo>https://ericsonmichaelj.github.io/Heap-Chrome-Extension/img/analytics.png</logo>
     <entry>
         <title type="html"><![CDATA[Introducing the Heap Analytics Debugger]]></title>
         <id>https://ericsonmichaelj.github.io/Heap-Chrome-Extension/blog/2018/06/20/blog-post.html</id>
-        <link href="https://ericsonmichaelj.github.io/Heap-Chrome-Extension/blog/2018/06/20/blog-post.html">
-        </link>
-        <updated>2018-06-20T06:00:00Z</updated>
-        <summary type="html"><![CDATA[<p>*<em>Please note this debugger is not affiliated with the heap analytics product</em></p>
-<p>There are lots of tests that need to be done for coding projects. Whenever there’s a deployment there’s always the fear of whether a regression happens. While testing on</p>
-]]></summary>
+        <link href="https://ericsonmichaelj.github.io/Heap-Chrome-Extension/blog/2018/06/20/blog-post.html"/>
+        <updated>2018-06-20T06:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>*<em>Please note this debugger is not affiliated with the heap analytics product</em></p> <p>There are lots of tests that need to be done for coding projects. Whenever there’s a deployment there’s always the fear of whether a regression happens. While testing on you...</p>]]></summary>
         <author>
             <name>Michael Ericson</name>
             <uri>https://www.linkedin.com/in/ericsonmichaelj</uri>
