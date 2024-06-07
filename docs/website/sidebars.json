@@ -1,6 +1,6 @@
 {
   "docs": {
-    "Getting Started": ["gettingStarted", "doc2", "doc3", "doc4"],
+    "Getting Started": ["gettingStarted", "doc2", "doc3", "doc4", "privacypolicy"],
     "Guides": ["doc5", "doc6"]
   },
   "docs-other": {

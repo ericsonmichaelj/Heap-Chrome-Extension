@@ -4,21 +4,49 @@
     "next": "Next",
     "previous": "Previous",
     "tagline": "A chrome extension to ensure your heap data gets fired",
-    "api1": "View Event Fired",
-    "api2": "Event Fired",
-    "api3": "User Properties Added",
-    "gettingStarted": "Installation & Usage",
-    "doc2": "What Gets Logs and Capabilities",
-    "doc3": "Contributing",
-    "doc4": "Versions",
-    "doc5": "Event Logs",
-    "doc6": "Property Logs",
-    "Docs": "Docs",
-    "API": "API",
-    "Help": "Help",
-    "Blog": "Blog",
-    "Getting Started": "Getting Started",
-    "Guides": "Guides"
+    "docs": {
+      "api1": {
+        "title": "View Event Fired"
+      },
+      "api2": {
+        "title": "Event Fired"
+      },
+      "api3": {
+        "title": "User Properties Added"
+      },
+      "gettingStarted": {
+        "title": "Installation & Usage"
+      },
+      "doc2": {
+        "title": "What Gets Logs and Capabilities"
+      },
+      "doc3": {
+        "title": "Contributing"
+      },
+      "doc4": {
+        "title": "Versions"
+      },
+      "doc5": {
+        "title": "Event Logs"
+      },
+      "doc6": {
+        "title": "Property Logs"
+      },
+      "privacypolicy": {
+        "title": "Privacy Policy"
+      }
+    },
+    "links": {
+      "Docs": "Docs",
+      "API": "API",
+      "Help": "Help",
+      "Blog": "Blog"
+    },
+    "categories": {
+      "Getting Started": "Getting Started",
+      "Guides": "Guides",
+      "API": "API"
+    }
   },
   "pages-strings": {
     "Help Translate|recruit community translators for your project": "Help Translate",
