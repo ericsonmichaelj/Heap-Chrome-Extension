@@ -24,3 +24,7 @@ Now logs View Events. Logs about Event now include event properties about select
 Version 1.1.2
 ------
 Fix bug in which `?` and `#` were counted twice. Also fixed bug where target text was unnecessarily added
+
+Version 1.2.0
+------
+Upgrade to Manifest Version 3 (Previously Manifest Version 2) due to depreciation of Manifest Version 2 on chrome store. Also decrease allowed permissions for extension for better privacy and security
